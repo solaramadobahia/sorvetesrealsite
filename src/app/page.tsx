@@ -42,7 +42,7 @@ export default function Home() {
           </header>
 
           {/* 2. BUTTONS / LINKS SECTION */}
-          <section className="w-full flex flex-col items-center justify-center py-8 gap-4 z-20 animate-stagger-3 max-w-lg my-auto">
+          <section className="w-[90%] sm:w-full flex flex-col items-center justify-center py-8 gap-4 z-20 animate-stagger-3 max-w-[340px] sm:max-w-lg my-auto">
             <LinkButton
               variant="gold"
               href="http://api.whatsapp.com/send?phone=5571982908205&text="

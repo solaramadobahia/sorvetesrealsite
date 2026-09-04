@@ -103,7 +103,7 @@ export const AnimatedTestimonialGrid = ({
                   right: pos.right,
                   bottom: pos.bottom,
                 }}
-                initial={{ opacity: 0, scale: 0.6, rotate: pos.initialRotate }}
+                initial={{ scale: 0.6, rotate: pos.initialRotate }}
                 animate={{
                   scale: 1,
                   ...floatAnim,
