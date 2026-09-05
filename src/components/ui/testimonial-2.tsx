@@ -29,18 +29,18 @@ interface PositionItem {
 // Displays on both Mobile (with gentle opacity ~45% for high legibility) and Desktop (full opacity)
 const imagePositions: PositionItem[] = [
   // Left Side Floating Column
-  { top: '3%', left: '2%', styleClass: 'w-[72px] h-[108px] md:w-[115px] md:h-[170px]', initialRotate: -6, opacity: 'opacity-45 md:opacity-100' },
-  { top: '22%', left: '3%', styleClass: 'w-[64px] h-[96px] md:w-[100px] md:h-[148px]', initialRotate: 5, opacity: 'opacity-40 md:opacity-100' },
-  { top: '44%', left: '1.5%', styleClass: 'w-[76px] h-[114px] md:w-[120px] md:h-[178px]', initialRotate: -4, opacity: 'opacity-45 md:opacity-100' },
-  { top: '65%', left: '3%', styleClass: 'w-[68px] h-[102px] md:w-[105px] md:h-[155px]', initialRotate: 7, opacity: 'opacity-40 md:opacity-100' },
-  { top: '84%', left: '2%', styleClass: 'w-[72px] h-[108px] md:w-[110px] md:h-[162px]', initialRotate: -5, opacity: 'opacity-45 md:opacity-100' },
+  { top: '2%', left: '2%', styleClass: 'w-[56px] h-[84px] sm:w-[90px] sm:h-[135px] md:w-[115px] md:h-[170px]', initialRotate: -6, opacity: 'opacity-40 md:opacity-100' },
+  { top: '22%', left: '2%', styleClass: 'w-[52px] h-[78px] sm:w-[80px] sm:h-[120px] md:w-[100px] md:h-[148px]', initialRotate: 5, opacity: 'opacity-35 md:opacity-100' },
+  { top: '44%', left: '1%', styleClass: 'w-[60px] h-[90px] sm:w-[95px] sm:h-[142px] md:w-[120px] md:h-[178px]', initialRotate: -4, opacity: 'opacity-40 md:opacity-100' },
+  { top: '65%', left: '2%', styleClass: 'w-[54px] h-[81px] sm:w-[85px] sm:h-[128px] md:w-[105px] md:h-[155px]', initialRotate: 7, opacity: 'opacity-35 md:opacity-100' },
+  { top: '85%', left: '2%', styleClass: 'w-[58px] h-[87px] sm:w-[88px] sm:h-[132px] md:w-[110px] md:h-[162px]', initialRotate: -5, opacity: 'opacity-40 md:opacity-100' },
 
   // Right Side Floating Column
-  { top: '4%', right: '2%', styleClass: 'w-[72px] h-[108px] md:w-[110px] md:h-[162px]', initialRotate: 6, opacity: 'opacity-45 md:opacity-100' },
-  { top: '25%', right: '3%', styleClass: 'w-[68px] h-[102px] md:w-[115px] md:h-[170px]', initialRotate: -7, opacity: 'opacity-40 md:opacity-100' },
-  { top: '47%', right: '1.5%', styleClass: 'w-[70px] h-[105px] md:w-[105px] md:h-[155px]', initialRotate: 4, opacity: 'opacity-45 md:opacity-100' },
-  { top: '68%', right: '3%', styleClass: 'w-[76px] h-[114px] md:w-[118px] md:h-[175px]', initialRotate: -5, opacity: 'opacity-40 md:opacity-100' },
-  { top: '86%', right: '2%', styleClass: 'w-[68px] h-[102px] md:w-[100px] md:h-[148px]', initialRotate: 6, opacity: 'opacity-45 md:opacity-100' },
+  { top: '3%', right: '2%', styleClass: 'w-[56px] h-[84px] sm:w-[90px] sm:h-[135px] md:w-[110px] md:h-[162px]', initialRotate: 6, opacity: 'opacity-40 md:opacity-100' },
+  { top: '25%', right: '2%', styleClass: 'w-[52px] h-[78px] sm:w-[82px] sm:h-[123px] md:w-[115px] md:h-[170px]', initialRotate: -7, opacity: 'opacity-35 md:opacity-100' },
+  { top: '47%', right: '1%', styleClass: 'w-[54px] h-[81px] sm:w-[85px] sm:h-[128px] md:w-[105px] md:h-[155px]', initialRotate: 4, opacity: 'opacity-40 md:opacity-100' },
+  { top: '68%', right: '2%', styleClass: 'w-[60px] h-[90px] sm:w-[92px] sm:h-[138px] md:w-[118px] md:h-[175px]', initialRotate: -5, opacity: 'opacity-35 md:opacity-100' },
+  { top: '86%', right: '2%', styleClass: 'w-[54px] h-[81px] sm:w-[80px] sm:h-[120px] md:w-[100px] md:h-[148px]', initialRotate: 6, opacity: 'opacity-40 md:opacity-100' },
 ];
 
 const getFloatingKeyframes = (index: number) => {
