@@ -3,6 +3,8 @@ import * as React from "react";
 export function WhatsAppIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg
+      width="28"
+      height="28"
       viewBox="0 0 24 24"
       fill="currentColor"
       className={className}
@@ -16,6 +18,8 @@ export function WhatsAppIcon({ className = "w-6 h-6" }: { className?: string }) 
 export function DeliveryIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg
+      width="28"
+      height="28"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -38,6 +42,8 @@ export function DeliveryIcon({ className = "w-6 h-6" }: { className?: string }) 
 export function StorePinIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg
+      width="28"
+      height="28"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -56,6 +62,8 @@ export function StorePinIcon({ className = "w-6 h-6" }: { className?: string }) 
 export function InstagramIcon({ className = "w-6 h-6" }: { className?: string }) {
   return (
     <svg
+      width="28"
+      height="28"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
