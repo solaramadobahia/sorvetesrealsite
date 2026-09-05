@@ -15,53 +15,103 @@ export interface AnimatedTestimonialGridProps {
   children?: React.ReactNode;
 }
 
-interface PositionItem {
-  top?: string;
+interface OrganicSlotConfig {
+  top: string;
   left?: string;
   right?: string;
-  bottom?: string;
+  rotate: number;
   styleClass: string;
-  initialRotate: number;
   opacity: string;
+  intervalMs: number;
+  initialPhotoIndex: number;
+  floatY: number;
 }
 
-// --- RESPONSIVE FLOATING PHOTO POSITIONS ---
-// Displays on both Mobile (with gentle opacity ~45% for high legibility) and Desktop (full opacity)
-const imagePositions: PositionItem[] = [
-  // Left Side Floating Column
-  { top: '2%', left: '2%', styleClass: 'w-[56px] h-[84px] sm:w-[90px] sm:h-[135px] md:w-[115px] md:h-[170px]', initialRotate: -6, opacity: 'opacity-40 md:opacity-100' },
-  { top: '22%', left: '2%', styleClass: 'w-[52px] h-[78px] sm:w-[80px] sm:h-[120px] md:w-[100px] md:h-[148px]', initialRotate: 5, opacity: 'opacity-35 md:opacity-100' },
-  { top: '44%', left: '1%', styleClass: 'w-[60px] h-[90px] sm:w-[95px] sm:h-[142px] md:w-[120px] md:h-[178px]', initialRotate: -4, opacity: 'opacity-40 md:opacity-100' },
-  { top: '65%', left: '2%', styleClass: 'w-[54px] h-[81px] sm:w-[85px] sm:h-[128px] md:w-[105px] md:h-[155px]', initialRotate: 7, opacity: 'opacity-35 md:opacity-100' },
-  { top: '85%', left: '2%', styleClass: 'w-[58px] h-[87px] sm:w-[88px] sm:h-[132px] md:w-[110px] md:h-[162px]', initialRotate: -5, opacity: 'opacity-40 md:opacity-100' },
+// --- ORGANIC STAGGERED POSITIONS & CYCLE TIMERS ---
+// Photos are dynamically spaced and staggered (not in a straight column)
+// They smoothly fade in and out to cycle through all 10 brand photos
+const organicSlots: OrganicSlotConfig[] = [
+  // Left Side (Staggered X offsets & dynamic rotations)
+  { top: '3%', left: '1.5%', rotate: -12, styleClass: 'w-[56px] h-[84px] sm:w-[90px] sm:h-[135px] md:w-[120px] md:h-[180px]', opacity: 'opacity-40 md:opacity-100', intervalMs: 6500, initialPhotoIndex: 0, floatY: -10 },
+  { top: '25%', left: '5%', rotate: 14, styleClass: 'w-[52px] h-[78px] sm:w-[82px] sm:h-[123px] md:w-[108px] md:h-[162px]', opacity: 'opacity-35 md:opacity-100', intervalMs: 8200, initialPhotoIndex: 1, floatY: -8 },
+  { top: '48%', left: '1%', rotate: -9, styleClass: 'w-[60px] h-[90px] sm:w-[95px] sm:h-[142px] md:w-[125px] md:h-[188px]', opacity: 'opacity-40 md:opacity-100', intervalMs: 7000, initialPhotoIndex: 2, floatY: -12 },
+  { top: '74%', left: '4.5%', rotate: 11, styleClass: 'w-[54px] h-[81px] sm:w-[86px] sm:h-[129px] md:w-[112px] md:h-[168px]', opacity: 'opacity-35 md:opacity-100', intervalMs: 9000, initialPhotoIndex: 3, floatY: -9 },
 
-  // Right Side Floating Column
-  { top: '3%', right: '2%', styleClass: 'w-[56px] h-[84px] sm:w-[90px] sm:h-[135px] md:w-[110px] md:h-[162px]', initialRotate: 6, opacity: 'opacity-40 md:opacity-100' },
-  { top: '25%', right: '2%', styleClass: 'w-[52px] h-[78px] sm:w-[82px] sm:h-[123px] md:w-[115px] md:h-[170px]', initialRotate: -7, opacity: 'opacity-35 md:opacity-100' },
-  { top: '47%', right: '1%', styleClass: 'w-[54px] h-[81px] sm:w-[85px] sm:h-[128px] md:w-[105px] md:h-[155px]', initialRotate: 4, opacity: 'opacity-40 md:opacity-100' },
-  { top: '68%', right: '2%', styleClass: 'w-[60px] h-[90px] sm:w-[92px] sm:h-[138px] md:w-[118px] md:h-[175px]', initialRotate: -5, opacity: 'opacity-35 md:opacity-100' },
-  { top: '86%', right: '2%', styleClass: 'w-[54px] h-[81px] sm:w-[80px] sm:h-[120px] md:w-[100px] md:h-[148px]', initialRotate: 6, opacity: 'opacity-40 md:opacity-100' },
+  // Right Side (Staggered X offsets & dynamic rotations)
+  { top: '5%', right: '4.5%', rotate: 15, styleClass: 'w-[54px] h-[81px] sm:w-[86px] sm:h-[129px] md:w-[112px] md:h-[168px]', opacity: 'opacity-35 md:opacity-100', intervalMs: 7500, initialPhotoIndex: 4, floatY: -9 },
+  { top: '28%', right: '1.5%', rotate: -11, styleClass: 'w-[60px] h-[90px] sm:w-[95px] sm:h-[142px] md:w-[125px] md:h-[188px]', opacity: 'opacity-40 md:opacity-100', intervalMs: 6000, initialPhotoIndex: 5, floatY: -11 },
+  { top: '52%', right: '5%', rotate: 8, styleClass: 'w-[52px] h-[78px] sm:w-[82px] sm:h-[123px] md:w-[108px] md:h-[162px]', opacity: 'opacity-35 md:opacity-100', intervalMs: 8500, initialPhotoIndex: 6, floatY: -8 },
+  { top: '76%', right: '2%', rotate: -14, styleClass: 'w-[56px] h-[84px] sm:w-[90px] sm:h-[135px] md:w-[120px] md:h-[180px]', opacity: 'opacity-40 md:opacity-100', intervalMs: 6800, initialPhotoIndex: 7, floatY: -10 },
 ];
 
-const getFloatingKeyframes = (index: number) => {
-  const yRange = -8 - (index % 4) * 3;
-  const dur = 4 + (index % 3) * 1.2;
-  const rotDelta = (index % 2 === 0 ? 1 : -1) * (2 + (index % 3));
+const OrganicFloatingCard = ({
+  slot,
+  testimonials,
+}: {
+  slot: OrganicSlotConfig;
+  testimonials: Testimonial[];
+}) => {
+  const [photoIndex, setPhotoIndex] = React.useState(slot.initialPhotoIndex);
+  const [isFading, setIsFading] = React.useState(false);
 
-  return {
-    y: [0, yRange, 0],
-    rotate: [
-      imagePositions[index]?.initialRotate ?? 0,
-      (imagePositions[index]?.initialRotate ?? 0) + rotDelta,
-      imagePositions[index]?.initialRotate ?? 0,
-    ],
-    transition: {
-      duration: dur,
-      repeat: Infinity,
-      repeatType: 'reverse' as const,
-      ease: 'easeInOut' as const,
-    },
-  };
+  React.useEffect(() => {
+    if (!testimonials || testimonials.length === 0) return;
+
+    const timer = setInterval(() => {
+      // Start smooth fade out
+      setIsFading(true);
+
+      setTimeout(() => {
+        // Swap to next photo in pool
+        setPhotoIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+        // Start smooth fade in
+        setIsFading(false);
+      }, 1000);
+    }, slot.intervalMs);
+
+    return () => clearInterval(timer);
+  }, [slot.intervalMs, testimonials]);
+
+  const currentPhoto = testimonials[photoIndex % testimonials.length];
+  if (!currentPhoto) return null;
+
+  return (
+    <div
+      className={cn('absolute pointer-events-none z-0', slot.styleClass)}
+      style={{
+        top: slot.top,
+        left: slot.left,
+        right: slot.right,
+      }}
+    >
+      <motion.div
+        className={cn(
+          'w-full h-full rounded-2xl shadow-xl overflow-hidden pointer-events-auto transition-all duration-300 hover:shadow-2xl hover:opacity-100',
+          slot.opacity
+        )}
+        initial={{ scale: 0.8, opacity: 0, rotate: slot.rotate }}
+        animate={{
+          scale: isFading ? 0.85 : 1,
+          opacity: isFading ? 0 : 1,
+          rotate: [slot.rotate, slot.rotate + (slot.rotate > 0 ? 3 : -3), slot.rotate],
+          y: [0, slot.floatY, 0],
+        }}
+        transition={{
+          opacity: { duration: 1, ease: 'easeInOut' },
+          scale: { duration: 1, ease: 'easeInOut' },
+          y: { duration: 4 + (slot.initialPhotoIndex % 3), repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' },
+          rotate: { duration: 5 + (slot.initialPhotoIndex % 2), repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' },
+        }}
+        whileHover={{ scale: 1.15, zIndex: 30, rotate: 0 }}
+      >
+        <img
+          src={currentPhoto.imgSrc}
+          alt={currentPhoto.alt}
+          className="w-full h-full object-cover rounded-2xl pointer-events-none select-none aspect-[2/3]"
+        />
+      </motion.div>
+    </div>
+  );
 };
 
 export const AnimatedTestimonialGrid = ({
@@ -82,43 +132,16 @@ export const AnimatedTestimonialGrid = ({
         className
       )}
     >
-      {/* Floating Side Photos (Visible on Mobile & Desktop) */}
+      {/* Floating Organic Photos (Staggered placement & fluid fade cycle) */}
       {mounted && (
         <div className="absolute inset-0 pointer-events-none z-0">
-          {testimonials.slice(0, imagePositions.length).map((testimonial, index) => {
-            const pos = imagePositions[index];
-            const floatAnim = getFloatingKeyframes(index);
-
-            return (
-              <motion.div
-                key={index}
-                className={cn(
-                  'absolute rounded-2xl shadow-lg overflow-hidden pointer-events-auto transition-all duration-300 hover:shadow-2xl hover:opacity-100',
-                  pos.styleClass,
-                  pos.opacity
-                )}
-                style={{ 
-                  top: pos.top, 
-                  left: pos.left,
-                  right: pos.right,
-                  bottom: pos.bottom,
-                }}
-                initial={{ scale: 0.6, rotate: pos.initialRotate }}
-                animate={{
-                  scale: 1,
-                  ...floatAnim,
-                }}
-                whileHover={{ scale: 1.15, zIndex: 30, rotate: 0 }}
-                custom={index}
-              >
-                <img
-                  src={testimonial.imgSrc}
-                  alt={testimonial.alt}
-                  className="w-full h-full object-cover rounded-2xl pointer-events-none select-none aspect-[2/3]"
-                />
-              </motion.div>
-            );
-          })}
+          {organicSlots.map((slot, index) => (
+            <OrganicFloatingCard
+              key={index}
+              slot={slot}
+              testimonials={testimonials}
+            />
+          ))}
         </div>
       )}
 
