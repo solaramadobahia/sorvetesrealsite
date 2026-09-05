@@ -7,17 +7,19 @@ import {
   InstagramIcon,
 } from "@/components/Icons";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const SITE_PHOTOS = [
-  { imgSrc: "/fotos/foto-01.jpeg", alt: "Sorvetes Real do Solar - Sorvete artesanal" },
-  { imgSrc: "/fotos/foto-02.jpeg", alt: "Sorvetes Real do Solar - Loja Ribeira" },
-  { imgSrc: "/fotos/foto-03.jpeg", alt: "Sorvetes Real do Solar - Picolés e Sorvetes" },
-  { imgSrc: "/fotos/foto-04.jpeg", alt: "Sorvetes Real do Solar - Sabor Chocolate Africano" },
-  { imgSrc: "/fotos/foto-05.jpeg", alt: "Sorvetes Real do Solar - Momentos Especiais" },
-  { imgSrc: "/fotos/foto-06.jpeg", alt: "Sorvetes Real do Solar - Solar Amado Bahia" },
-  { imgSrc: "/fotos/foto-07.jpeg", alt: "Sorvetes Real do Solar - Sorvete de Frutas" },
-  { imgSrc: "/fotos/foto-08.jpeg", alt: "Sorvetes Real do Solar - Tradição Soteropolitana" },
-  { imgSrc: "/fotos/foto-09.jpeg", alt: "Sorvetes Real do Solar - Experiência Real" },
-  { imgSrc: "/fotos/foto-10.jpeg", alt: "Sorvetes Real do Solar - Ribeira Salvador" },
+  { imgSrc: `${basePath}/fotos/foto-01.jpeg`, alt: "Sorvetes Real do Solar - Sorvete artesanal" },
+  { imgSrc: `${basePath}/fotos/foto-02.jpeg`, alt: "Sorvetes Real do Solar - Loja Ribeira" },
+  { imgSrc: `${basePath}/fotos/foto-03.jpeg`, alt: "Sorvetes Real do Solar - Picolés e Sorvetes" },
+  { imgSrc: `${basePath}/fotos/foto-04.jpeg`, alt: "Sorvetes Real do Solar - Sabor Chocolate Africano" },
+  { imgSrc: `${basePath}/fotos/foto-05.jpeg`, alt: "Sorvetes Real do Solar - Momentos Especiais" },
+  { imgSrc: `${basePath}/fotos/foto-06.jpeg`, alt: "Sorvetes Real do Solar - Solar Amado Bahia" },
+  { imgSrc: `${basePath}/fotos/foto-07.jpeg`, alt: "Sorvetes Real do Solar - Sorvete de Frutas" },
+  { imgSrc: `${basePath}/fotos/foto-08.jpeg`, alt: "Sorvetes Real do Solar - Tradição Soteropolitana" },
+  { imgSrc: `${basePath}/fotos/foto-09.jpeg`, alt: "Sorvetes Real do Solar - Experiência Real" },
+  { imgSrc: `${basePath}/fotos/foto-10.jpeg`, alt: "Sorvetes Real do Solar - Ribeira Salvador" },
 ];
 
 export default function Home() {
@@ -30,7 +32,7 @@ export default function Home() {
           <header className="animate-stagger-1 z-20 flex flex-col items-center justify-center pt-6 sm:pt-10 md:pt-14 pb-4 w-full max-w-lg">
             <div className="relative w-64 sm:w-80 md:w-96 aspect-[1439/809] drop-shadow-xl transition-transform duration-300 hover:scale-105">
               <img
-                src="/logos/Logo-real-do-solar-01.png"
+                src={`${basePath}/logos/Logo-real-do-solar-01.png`}
                 alt="Sorvetes Real do Solar"
                 className="w-full h-full object-contain"
                 loading="eager"
