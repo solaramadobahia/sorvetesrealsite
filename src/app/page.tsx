@@ -1,5 +1,6 @@
 import AnimatedTestimonialGrid from "@/components/ui/testimonial-2";
 import LinkButton from "@/components/LinkButton";
+import FeatureCard from "@/components/FeatureCard";
 import {
   WhatsAppIcon,
   DeliveryIcon,
@@ -89,14 +90,13 @@ export default function Home() {
               Instagram @sorvetesreal
             </LinkButton>
 
-            <LinkButton
-              variant="white"
-              imageSrc="/fotos/foto-solar.png"
-              subtitle="Conheça o primeiro museu do sorvete do Brasil e nossa loja na Ribeira!"
+            <FeatureCard
+              bannerImage="/fotos/foto-solar.jpg"
+              badge="LOJA & MUSEU"
+              title="Solar Amado Bahia na Ribeira"
+              description="Conheça o primeiro museu do sorvete do Brasil e nossa loja na Ribeira!"
               href="https://www.instagram.com/solaramadobahia/"
-            >
-              Solar Amado Bahia na Ribeira
-            </LinkButton>
+            />
           </section>
 
           {/* 3. FOOTER */}
