@@ -76,6 +76,14 @@ export default function Home() {
             </LinkButton>
 
             <LinkButton
+              variant="gold"
+              href="https://www.instagram.com/sorvetesreal/"
+              icon={<InstagramIcon className="w-7 h-7" />}
+            >
+              Instagram @sorvetesreal
+            </LinkButton>
+
+            <LinkButton
               variant="white"
               href="https://www.instagram.com/solaramadobahia/"
               icon={<InstagramIcon className="w-7 h-7" />}
