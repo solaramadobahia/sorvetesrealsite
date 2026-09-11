@@ -46,6 +46,7 @@ export default function Home() {
             <LinkButton
               variant="gold"
               showShimmer={true}
+              subtitle="Varejo e atacado com preços especiais para consumidor final"
               href="http://api.whatsapp.com/send?phone=5571982908205&text="
               icon={<WhatsAppIcon className="w-7 h-7" />}
             >
@@ -55,6 +56,7 @@ export default function Home() {
             <LinkButton
               variant="gold"
               showShimmer={true}
+              subtitle="Seja um revendedor parceiro ou faça seu pedido de atacado"
               href="http://api.whatsapp.com/send?phone=5571987773174&text="
               icon={<WhatsAppIcon className="w-7 h-7" />}
             >
@@ -63,7 +65,9 @@ export default function Home() {
 
             <LinkButton
               variant="gold"
-              href="http://flow.page/deliveryreal"
+              subtitle="Conheça nossas lojas com delivery próprio ou via iFood"
+              href="/delivery"
+              target="_self"
               icon={<DeliveryIcon className="w-7 h-7" />}
             >
               Delivery

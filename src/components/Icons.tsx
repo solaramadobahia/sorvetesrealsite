@@ -79,3 +79,37 @@ export function InstagramIcon({ className = "w-6 h-6" }: { className?: string })
     </svg>
   );
 }
+
+export function IFoodIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2V15h2v1.5zm.07-4.75c-.38.16-.76.33-1.14.51-.57.27-1.12.56-1.63.88l-1.07-1.57c.69-.47 1.44-.88 2.22-1.24.77-.35 1.57-.62 2.37-.81l.75 1.83c-.5.12-1.01.25-1.5.4zm1.93-2.31c-.97.24-1.93.57-2.86 1.01l-.73-1.84c1.13-.52 2.31-.91 3.51-1.18l.08 2.01z"/>
+    </svg>
+  );
+}
+
+export function ArrowLeftIcon({ className = "w-6 h-6" }: { className?: string }) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M19 12H5M12 19l-7-7 7-7" />
+    </svg>
+  );
+}
