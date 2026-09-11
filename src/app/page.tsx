@@ -56,7 +56,7 @@ export default function Home() {
             <LinkButton
               variant="gold"
               showShimmer={true}
-              subtitle="Seja um revendedor parceiro ou faça seu pedido de atacado"
+              subtitle="Venda exclusiva para revendedores parceiros"
               href="http://api.whatsapp.com/send?phone=5571987773174&text="
               icon={<WhatsAppIcon className="w-7 h-7" />}
             >
