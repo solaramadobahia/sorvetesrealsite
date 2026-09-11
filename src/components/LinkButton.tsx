@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 export interface LinkButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: "gold" | "white";
   icon?: React.ReactNode;
+  imageSrc?: string;
   showShimmer?: boolean;
   subtitle?: string;
   children: React.ReactNode;
@@ -12,6 +13,7 @@ export interface LinkButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorEl
 export function LinkButton({
   variant = "gold",
   icon,
+  imageSrc,
   showShimmer = false,
   subtitle,
   children,
@@ -29,6 +31,7 @@ export function LinkButton({
         isGold
           ? "bg-gradient-to-r from-[#EEC234] via-[#F5D152] to-[#EEC234] text-real-wine border-2 border-real-gold/90 hover:from-[#F5CB40] hover:to-[#F5CB40] hover:border-real-gold hover:text-real-wine shadow-[0_4px_18px_rgba(238,194,52,0.3)] hover:shadow-[0_6px_25px_rgba(238,194,52,0.55)]"
           : "bg-real-white text-real-red border-2 border-real-white/90 hover:bg-slate-50 hover:text-[#a52628]",
+        imageSrc ? "py-4" : "",
         className
       )}
       {...props}
@@ -41,7 +44,15 @@ export function LinkButton({
       )}
 
       <div className="flex items-center gap-3.5 z-10 flex-1 text-left">
-        {icon ? (
+        {imageSrc ? (
+          <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden shrink-0 border-2 border-real-gold/60 shadow-sm group-hover:scale-105 transition-transform duration-300">
+            <img
+              src={imageSrc}
+              alt={typeof children === "string" ? children : "Imagem"}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ) : icon ? (
           <span
             className={cn(
               "transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-rotate-6 shrink-0",
@@ -51,14 +62,15 @@ export function LinkButton({
             {icon}
           </span>
         ) : null}
+
         <div className="flex flex-col justify-center">
-          <span className="tracking-wide text-xl md:text-2xl font-bold uppercase leading-tight">
+          <span className="tracking-wide text-lg sm:text-xl md:text-2xl font-bold uppercase leading-tight">
             {children}
           </span>
           {subtitle && (
             <span
               className={cn(
-                "text-xs md:text-sm font-normal tracking-normal normal-case leading-snug mt-0.5 font-sans opacity-90",
+                "text-xs md:text-sm font-normal tracking-normal normal-case leading-snug mt-1 font-sans opacity-90",
                 isGold ? "text-real-wine/90" : "text-real-red/90"
               )}
             >

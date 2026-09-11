@@ -91,10 +91,11 @@ export default function Home() {
 
             <LinkButton
               variant="white"
+              imageSrc="/fotos/foto-solar.png"
+              subtitle="Conheça o primeiro museu do sorvete do Brasil e nossa loja na Ribeira!"
               href="https://www.instagram.com/solaramadobahia/"
-              icon={<InstagramIcon className="w-7 h-7" />}
             >
-              Solar Amado Bahia - Loja Ribeira
+              Solar Amado Bahia na Ribeira
             </LinkButton>
           </section>
 
