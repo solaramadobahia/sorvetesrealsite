@@ -87,9 +87,24 @@ body {
   .animate-stagger-1,
   .animate-stagger-2,
   .animate-stagger-3,
-  .animate-stagger-4 {
+  .animate-stagger-4,
+  .animate-shimmer {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+/* Shimmer shine effect for high-priority buttons */
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-150%) skewX(-15deg);
+  }
+  35%, 100% {
+    transform: translateX(350%) skewX(-15deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmerSweep 3.5s infinite ease-in-out;
 }

@@ -45,6 +45,7 @@ export default function Home() {
           <section className="w-[90%] sm:w-full flex flex-col items-center justify-center py-8 gap-4 z-20 animate-stagger-3 max-w-[340px] sm:max-w-lg my-auto">
             <LinkButton
               variant="gold"
+              showShimmer={true}
               href="http://api.whatsapp.com/send?phone=5571982908205&text="
               icon={<WhatsAppIcon className="w-7 h-7" />}
             >
@@ -53,6 +54,7 @@ export default function Home() {
 
             <LinkButton
               variant="gold"
+              showShimmer={true}
               href="http://api.whatsapp.com/send?phone=5571987773174&text="
               icon={<WhatsAppIcon className="w-7 h-7" />}
             >
@@ -60,7 +62,7 @@ export default function Home() {
             </LinkButton>
 
             <LinkButton
-              variant="white"
+              variant="gold"
               href="http://flow.page/deliveryreal"
               icon={<DeliveryIcon className="w-7 h-7" />}
             >
@@ -68,7 +70,7 @@ export default function Home() {
             </LinkButton>
 
             <LinkButton
-              variant="gold"
+              variant="white"
               href="http://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTc3MzUxMDI0NDkwMTky?story_media_id=2829511269317691198&igshid=YmMyMTA2M2Y="
               icon={<StorePinIcon className="w-7 h-7" />}
             >
@@ -76,7 +78,7 @@ export default function Home() {
             </LinkButton>
 
             <LinkButton
-              variant="gold"
+              variant="white"
               href="https://www.instagram.com/sorvetesreal/"
               icon={<InstagramIcon className="w-7 h-7" />}
             >
