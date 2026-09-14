@@ -43,10 +43,12 @@ export function StoreLocator() {
     }
   }, [filteredStores, selectedStore]);
 
-  // Google Maps Embed URL centered on selected store coordinates and query
+  // Google Maps Embed URL centered on selected store's high-precision address query
   const mapEmbedUrl = React.useMemo(() => {
-    const query = encodeURIComponent(`Sorvetes Real ${selectedStore.name} ${selectedStore.address} ${selectedStore.city} Bahia`);
-    return `https://maps.google.com/maps?q=${selectedStore.lat},${selectedStore.lng}&hl=pt-BR&z=16&output=embed`;
+    const query = encodeURIComponent(
+      selectedStore.exactQuery || `${selectedStore.name}, ${selectedStore.address}, ${selectedStore.city} - BA`
+    );
+    return `https://maps.google.com/maps?q=${query}&t=&z=17&ie=UTF8&iwloc=&output=embed`;
   }, [selectedStore]);
 
   return (
