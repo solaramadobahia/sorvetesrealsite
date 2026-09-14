@@ -28,6 +28,16 @@ const WHATSAPP_DELIVERY_STORES = [
     url: "https://api.whatsapp.com/send?phone=5571987073065",
   },
   {
+    name: "Ribeira",
+    subtitle: "Via WhatsApp: (71) 98425-1607",
+    url: "https://api.whatsapp.com/send?phone=5571984251607",
+  },
+  {
+    name: "Lauro de Freitas - Centro",
+    subtitle: "Via WhatsApp: (71) 98266-7396",
+    url: "https://api.whatsapp.com/send?phone=5571982667396",
+  },
+  {
     name: "Pirajá",
     subtitle: "Via WhatsApp: (71) 98769-4348",
     url: "https://api.whatsapp.com/send?phone=5571987694348",
@@ -53,11 +63,6 @@ const WHATSAPP_DELIVERY_STORES = [
     url: "https://api.whatsapp.com/send?phone=5571993801211",
   },
   {
-    name: "Lauro Centro",
-    subtitle: "Via WhatsApp: (71) 98266-7396",
-    url: "https://api.whatsapp.com/send?phone=5571982667396",
-  },
-  {
     name: "Guarajuba",
     subtitle: "Via WhatsApp: (71) 98231-8595",
     url: "https://api.whatsapp.com/send?phone=5571982318595",
@@ -66,11 +71,6 @@ const WHATSAPP_DELIVERY_STORES = [
     name: "Praia do Forte",
     subtitle: "Via WhatsApp: (71) 99652-5371",
     url: "https://api.whatsapp.com/send?phone=5571996525371",
-  },
-  {
-    name: "Ribeira",
-    subtitle: "Via WhatsApp: (71) 98425-1607",
-    url: "https://api.whatsapp.com/send?phone=5571984251607",
   },
 ];
 
