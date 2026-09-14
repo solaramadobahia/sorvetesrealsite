@@ -76,7 +76,8 @@ export default function Home() {
 
             <LinkButton
               variant="white"
-              href="http://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTc3MzUxMDI0NDkwMTky?story_media_id=2829511269317691198&igshid=YmMyMTA2M2Y="
+              href="/lojas"
+              target="_self"
               icon={<StorePinIcon className="w-7 h-7" />}
             >
               Nossas Lojas
