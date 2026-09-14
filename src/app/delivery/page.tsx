@@ -33,14 +33,29 @@ const WHATSAPP_DELIVERY_STORES = [
     url: "https://api.whatsapp.com/send?phone=5571987694348",
   },
   {
-    name: "Nova Dias D'Ávila",
-    subtitle: "Via WhatsApp: (71) 99919-7677",
-    url: "https://api.whatsapp.com/send?phone=5571999197677",
+    name: "Costa Azul",
+    subtitle: "Via WhatsApp: (71) 99188-4679",
+    url: "https://api.whatsapp.com/send?phone=5571991884679",
   },
   {
-    name: "Itacimirim",
-    subtitle: "Via WhatsApp: (71) 99303-3809",
-    url: "https://api.whatsapp.com/send?phone=5571993033809",
+    name: "Abrantes",
+    subtitle: "Via WhatsApp: (71) 98256-3334",
+    url: "https://api.whatsapp.com/send?phone=5571982563334",
+  },
+  {
+    name: "Garcia",
+    subtitle: "Via WhatsApp: (71) 99112-2152",
+    url: "https://api.whatsapp.com/send?phone=5571991122152",
+  },
+  {
+    name: "Barra",
+    subtitle: "Via WhatsApp: (71) 99380-1211",
+    url: "https://api.whatsapp.com/send?phone=5571993801211",
+  },
+  {
+    name: "Lauro Centro",
+    subtitle: "Via WhatsApp: (71) 98266-7396",
+    url: "https://api.whatsapp.com/send?phone=5571982667396",
   },
   {
     name: "Guarajuba",
