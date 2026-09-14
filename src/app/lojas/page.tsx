@@ -41,12 +41,9 @@ export default function LojasPage() {
               />
             </div>
             
-            <h1 className="animate-stagger-2 text-real-gold font-extrabold text-2xl sm:text-4xl tracking-wider uppercase drop-shadow-md text-center mt-3">
-              Nossas Lojas na Bahia
+            <h1 className="animate-stagger-2 text-real-gold font-black text-2xl sm:text-3xl md:text-4xl tracking-wide uppercase drop-shadow-md text-center mt-4 max-w-2xl mx-auto px-2">
+              Encontre a unidade mais próxima de você
             </h1>
-            <p className="text-white/90 text-sm sm:text-base font-light text-center max-w-lg mt-1 drop-shadow-sm mx-auto">
-              Encontre a unidade mais próxima de você para saborear o verdadeiro sorvete artesanal da Bahia.
-            </p>
           </header>
 
           {/* STORE LOCATOR COMPONENT WITH MAP */}
