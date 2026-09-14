@@ -4,12 +4,11 @@ import * as React from "react";
 import { STORES_DATA, Store } from "@/data/stores";
 import { WhatsAppIcon, StorePinIcon } from "@/components/Icons";
 
-type RegionFilter = "Todas" | "Salvador" | "Região Metropolitana" | "Litoral & Ilha" | "Interior";
+type RegionFilter = "Todas" | "Salvador e Região" | "Litoral & Ilha" | "Interior";
 
 const REGIONS: RegionFilter[] = [
   "Todas",
-  "Salvador",
-  "Região Metropolitana",
+  "Salvador e Região",
   "Litoral & Ilha",
   "Interior",
 ];
@@ -131,7 +130,7 @@ export function StoreLocator() {
       (error) => {
         setIsLocating(false);
         if (error.code === error.PERMISSION_DENIED) {
-          setLocationError("Permissão de GPS negada. Ative o acesso à localização no seu navegador.");
+          setLocationError("Permissão de GPS negada. Ative o acesso à localização no navegador.");
         } else if (error.code === error.POSITION_UNAVAILABLE) {
           setLocationError("Sinal de GPS indisponível no momento. Tente novamente.");
         } else if (error.code === error.TIMEOUT) {
@@ -169,117 +168,122 @@ export function StoreLocator() {
   return (
     <div className="w-full max-w-5xl flex flex-col gap-6 z-20 mx-auto px-2 sm:px-4">
       
-      {/* 1. CONTROLS: SEARCH + GPS BUTTON + REGION FILTERS (PERFECTLY CENTERED) */}
-      <div className="flex flex-col items-center gap-4 w-full max-w-3xl mx-auto text-center">
+      {/* 1. CONTROLS: SEARCH + LATERAL GPS BUTTON + REGION FILTERS */}
+      <div className="flex flex-col items-center gap-3.5 w-full max-w-3xl mx-auto text-center">
         
-        {/* Search Input */}
-        <div className="relative w-full">
-          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-real-wine/70">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2.5"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </div>
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Buscar por bairro, rua ou cidade..."
-            className="w-full pl-11 pr-20 py-3.5 rounded-2xl bg-white text-real-wine placeholder-real-wine/50 font-medium text-base shadow-lg border-2 border-real-gold focus:outline-none focus:ring-4 focus:ring-real-gold/50 transition-all text-center sm:text-left"
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery("")}
-              className="absolute inset-y-0 right-0 pr-4 flex items-center text-real-wine/60 hover:text-real-wine text-xs sm:text-sm font-bold"
-            >
-              Limpar
-            </button>
-          )}
-        </div>
-
-        {/* GPS Location Button */}
-        <div className="flex flex-col items-center justify-center w-full gap-2">
-          {!gpsActive ? (
-            <button
-              onClick={handleGetLocation}
-              disabled={isLocating}
-              className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#EEC234] via-[#F5D152] to-[#EEC234] hover:brightness-105 active:scale-95 text-real-wine font-black text-sm sm:text-base py-3.5 px-6 rounded-2xl shadow-xl hover:shadow-2xl border-2 border-yellow-300 transition-all cursor-pointer disabled:opacity-75"
-            >
-              {isLocating ? (
-                <>
-                  <svg
-                    className="w-5 h-5 animate-spin text-real-wine"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    />
-                  </svg>
-                  <span>Localizando você via GPS...</span>
-                </>
-              ) : (
-                <>
-                  {/* GPS Target Crosshair Icon */}
-                  <svg
-                    className="w-5 h-5 text-real-wine"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle cx="12" cy="12" r="7" strokeWidth="2.5" />
-                    <line x1="12" y1="2" x2="12" y2="5" strokeWidth="2.5" strokeLinecap="round" />
-                    <line x1="12" y1="19" x2="12" y2="22" strokeWidth="2.5" strokeLinecap="round" />
-                    <line x1="2" y1="12" x2="5" y2="12" strokeWidth="2.5" strokeLinecap="round" />
-                    <line x1="19" y1="12" x2="22" y2="12" strokeWidth="2.5" strokeLinecap="round" />
-                    <circle cx="12" cy="12" r="2" fill="currentColor" />
-                  </svg>
-                  <span>Encontrar pelo meu GPS</span>
-                </>
-              )}
-            </button>
-          ) : (
-            <div className="inline-flex items-center justify-center gap-2 bg-emerald-700/90 text-white font-bold text-xs sm:text-sm py-2 px-4 rounded-xl border border-emerald-400/60 shadow-lg backdrop-blur-md">
-              <span className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-                GPS Ativo: Lojas ordenadas por proximidade
-              </span>
-              <button
-                onClick={handleClearGps}
-                className="ml-2 bg-black/30 hover:bg-black/50 text-white/90 px-2 py-0.5 rounded-md text-xs font-semibold hover:text-white transition-colors"
-                title="Desativar ordenação por GPS"
+        {/* Search Input with Lateral GPS Button */}
+        <div className="flex items-center gap-2.5 w-full">
+          <div className="relative flex-1">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-real-wine/70">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                ✕ Limpar
-              </button>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2.5"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
             </div>
-          )}
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Buscar por bairro, rua ou cidade..."
+              className="w-full pl-11 pr-16 py-3.5 rounded-2xl bg-white text-real-wine placeholder-real-wine/50 font-medium text-base shadow-lg border-2 border-real-gold focus:outline-none focus:ring-4 focus:ring-real-gold/50 transition-all"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute inset-y-0 right-0 pr-4 flex items-center text-real-wine/60 hover:text-real-wine text-xs sm:text-sm font-bold"
+              >
+                Limpar
+              </button>
+            )}
+          </div>
 
-          {/* Location Error Message */}
-          {locationError && (
-            <p className="text-xs sm:text-sm text-yellow-200 bg-black/60 px-4 py-2 rounded-xl border border-yellow-400/40 backdrop-blur-md max-w-md mx-auto">
-              ⚠️ {locationError}
-            </p>
-          )}
+          {/* Lateral GPS Button (Location Icon only) */}
+          <button
+            onClick={gpsActive ? handleClearGps : handleGetLocation}
+            disabled={isLocating}
+            title={
+              gpsActive
+                ? "GPS Ativo (clique para desativar)"
+                : "Encontrar lojas mais próximas pelo meu GPS"
+            }
+            aria-label="Encontrar lojas mais próximas pelo meu GPS"
+            className={`shrink-0 w-[52px] h-[52px] sm:w-[54px] sm:h-[54px] rounded-2xl flex items-center justify-center transition-all duration-200 shadow-lg border-2 cursor-pointer ${
+              gpsActive
+                ? "bg-emerald-600 text-white border-emerald-400 hover:bg-emerald-700 scale-105 ring-4 ring-emerald-400/30"
+                : "bg-gradient-to-r from-[#EEC234] via-[#F5D152] to-[#EEC234] hover:brightness-105 active:scale-95 text-real-wine border-yellow-300"
+            }`}
+          >
+            {isLocating ? (
+              <svg
+                className="w-6 h-6 animate-spin text-real-wine"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                />
+              </svg>
+            ) : (
+              /* Location GPS Crosshair Pin Icon */
+              <svg
+                className={`w-6 h-6 ${gpsActive ? "text-white" : "text-real-wine"}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="12" r="7" strokeWidth="2.5" />
+                <line x1="12" y1="2" x2="12" y2="5" strokeWidth="2.5" strokeLinecap="round" />
+                <line x1="12" y1="19" x2="12" y2="22" strokeWidth="2.5" strokeLinecap="round" />
+                <line x1="2" y1="12" x2="5" y2="12" strokeWidth="2.5" strokeLinecap="round" />
+                <line x1="19" y1="12" x2="22" y2="12" strokeWidth="2.5" strokeLinecap="round" />
+                <circle cx="12" cy="12" r="2" fill="currentColor" />
+              </svg>
+            )}
+          </button>
         </div>
+
+        {/* GPS Active indicator banner */}
+        {gpsActive && (
+          <div className="inline-flex items-center justify-center gap-2 bg-emerald-700/90 text-white font-bold text-xs sm:text-sm py-1.5 px-4 rounded-xl border border-emerald-400/60 shadow-lg backdrop-blur-md">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
+              GPS Ativo: Lojas ordenadas por proximidade
+            </span>
+            <button
+              onClick={handleClearGps}
+              className="ml-2 bg-black/30 hover:bg-black/50 text-white/90 px-2 py-0.5 rounded-md text-xs font-semibold hover:text-white transition-colors"
+              title="Desativar GPS"
+            >
+              ✕ Desativar
+            </button>
+          </div>
+        )}
+
+        {/* Location Error Message */}
+        {locationError && (
+          <p className="text-xs sm:text-sm text-yellow-200 bg-black/60 px-4 py-2 rounded-xl border border-yellow-400/40 backdrop-blur-md max-w-md mx-auto">
+            ⚠️ {locationError}
+          </p>
+        )}
 
         {/* Region Filter Chips (Centered with Glassmorphism) */}
         <div className="flex flex-wrap items-center justify-center gap-2 w-full pt-1">
@@ -297,7 +301,7 @@ export function StoreLocator() {
                 className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer text-center ${
                   isSelected
                     ? "bg-real-gold text-real-wine shadow-xl border-2 border-yellow-300 scale-105"
-                    : "bg-black/60 hover:bg-black/80 text-white/90 backdrop-blur-md border border-white/20 hover:border-real-gold/50 shadow-md"
+                    : "bg-black/50 hover:bg-black/70 text-white/90 backdrop-blur-md border border-white/20 hover:border-real-gold/50 shadow-md"
                 }`}
               >
                 {region} ({count})

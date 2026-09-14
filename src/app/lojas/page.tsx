@@ -4,7 +4,7 @@ import { ArrowLeftIcon, InstagramIcon } from "@/components/Icons";
 
 export default function LojasPage() {
   return (
-    <main className="min-h-screen bg-[#7A0014] bg-gradient-to-b from-[#8B0018] via-[#7A0014] to-[#5C000F] text-white flex flex-col justify-between items-center w-full relative overflow-x-hidden selection:bg-real-gold selection:text-real-wine">
+    <main className="min-h-screen bg-real-red text-white flex flex-col justify-between items-center w-full relative overflow-x-hidden selection:bg-real-gold selection:text-real-wine">
       <div className="w-full flex flex-col items-center justify-between min-h-screen py-8 md:py-12 px-3 sm:px-4">
         
         {/* HEADER & LOGO */}
@@ -12,14 +12,14 @@ export default function LojasPage() {
           {/* Botão Voltar com amplo respiro até a logo */}
           <Link
             href="/"
-            className="mb-8 sm:mb-10 inline-flex items-center gap-2.5 text-real-gold hover:text-white transition-all duration-300 font-bold text-sm sm:text-base bg-black/30 hover:bg-black/50 px-5 py-2.5 rounded-full border border-real-gold/40 shadow-lg backdrop-blur-sm mx-auto hover:scale-105 active:scale-95"
+            className="mb-8 sm:mb-10 inline-flex items-center gap-2.5 text-real-gold hover:text-white transition-all duration-300 font-bold text-sm sm:text-base bg-black/25 hover:bg-black/45 px-5 py-2.5 rounded-full border border-real-gold/40 shadow-md backdrop-blur-sm mx-auto hover:scale-105 active:scale-95"
           >
             <ArrowLeftIcon className="w-4 h-4" />
             <span>Voltar ao Início</span>
           </Link>
 
           {/* Logo Oficial */}
-          <div className="relative w-44 sm:w-56 md:w-64 aspect-[1439/809] drop-shadow-2xl transition-transform duration-300 hover:scale-105 mx-auto">
+          <div className="relative w-44 sm:w-56 md:w-64 aspect-[1439/809] drop-shadow-xl transition-transform duration-300 hover:scale-105 mx-auto">
             <img
               src="/logos/Logo-real-do-solar-01.png"
               alt="Sorvetes Real do Solar"
