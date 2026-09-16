@@ -47,8 +47,8 @@ const WHATSAPP_DELIVERY_STORES = [
   },
   {
     name: "Ribeira",
-    subtitle: "Via WhatsApp: (71) 98425-1607",
-    url: "https://api.whatsapp.com/send?phone=5571984251607",
+    subtitle: "Via WhatsApp: (71) 2132-0017",
+    url: "https://api.whatsapp.com/send?phone=557121320017",
   },
   {
     name: "Lauro de Freitas - Centro",

@@ -20,6 +20,7 @@ export const STORES_DATA: Store[] = [
     city: "Salvador",
     region: "Salvador e Região",
     phone: "(71) 2132-0017",
+    whatsappUrl: "https://api.whatsapp.com/send?phone=557121320017",
     exactQuery: "Solar Amado Bahia, Rua Porto dos Tainheiros, 80, Ribeira, Salvador - BA",
     lat: -12.91974,
     lng: -38.49752,
