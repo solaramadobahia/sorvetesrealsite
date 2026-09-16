@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import AnimatedTestimonialGrid from "@/components/ui/testimonial-2";
 import LinkButton from "@/components/LinkButton";
 import Link from "next/link";
@@ -7,6 +8,23 @@ import {
   ArrowLeftIcon,
   InstagramIcon,
 } from "@/components/Icons";
+
+export const metadata: Metadata = {
+  title: "Delivery de Sorvetes em Salvador e Região | Sorvetes Real",
+  description:
+    "Peça o legítimo sorvete artesanal baiano sem sair de casa. Delivery próprio via WhatsApp em Salvador, Lauro de Freitas e Litoral Norte, ou peça pelo iFood.",
+  alternates: {
+    canonical: "/delivery",
+  },
+  openGraph: {
+    title: "Delivery de Sorvetes | Sorvetes Real do Solar",
+    description:
+      "Peça sorvetes artesanais e picolés pelo WhatsApp ou iFood com entrega rápida em Salvador e Região.",
+    url: "https://sorvetesreal.com.br/delivery",
+    images: ["/logos/Logo-real-do-solar-01.png"],
+  },
+};
+
 
 const SITE_PHOTOS = [
   { imgSrc: "/fotos/foto-01.jpeg", alt: "Sorvetes Real do Solar - Sorvete artesanal" },
@@ -116,9 +134,12 @@ export default function DeliveryPage() {
             <div className="relative w-48 sm:w-64 md:w-80 aspect-[1439/809] drop-shadow-xl transition-transform duration-300 hover:scale-105 mx-auto">
               <img
                 src="/logos/Logo-real-do-solar-01.png"
-                alt="Sorvetes Real do Solar"
+                alt="Sorvetes Real do Solar - Delivery em Salvador"
+                width={320}
+                height={180}
                 className="w-full h-full object-contain"
                 loading="eager"
+                fetchPriority="high"
               />
             </div>
             

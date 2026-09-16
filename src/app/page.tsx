@@ -29,12 +29,19 @@ export default function Home() {
           
           {/* 1. HERO & LOGO */}
           <header className="animate-stagger-1 z-20 flex flex-col items-center justify-center pt-6 sm:pt-10 md:pt-14 pb-4 w-full max-w-lg">
+            {/* Semantic H1 for SEO & Search Engines */}
+            <h1 className="sr-only">
+              Sorvetes Real do Solar - Tradição em Sorvetes Artesanais e Picolés na Bahia
+            </h1>
             <div className="relative w-64 sm:w-80 md:w-96 aspect-[1439/809] drop-shadow-xl transition-transform duration-300 hover:scale-105">
               <img
                 src="/logos/Logo-real-do-solar-01.png"
-                alt="Sorvetes Real do Solar"
+                alt="Sorvetes Real do Solar - Tradição desde a Ribeira em Salvador"
+                width={384}
+                height={216}
                 className="w-full h-full object-contain"
                 loading="eager"
+                fetchPriority="high"
               />
             </div>
             <p className="animate-stagger-2 text-real-gold font-bold text-2xl sm:text-3xl tracking-wider uppercase drop-shadow-md text-center mt-4 sm:mt-6">

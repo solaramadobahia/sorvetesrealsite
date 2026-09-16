@@ -1,10 +1,66 @@
+import type { Metadata } from "next";
 import StoreLocator from "@/components/StoreLocator";
 import Link from "next/link";
 import { ArrowLeftIcon, InstagramIcon } from "@/components/Icons";
+import { STORES_DATA } from "@/data/stores";
+
+export const metadata: Metadata = {
+  title: "Nossas Lojas na Bahia | Encontre a Mais Próxima",
+  description:
+    "Encontre a unidade Sorvetes Real mais próxima de você em Salvador, Região Metropolitana, Litoral Norte, Ilha de Itaparica e Interior da Bahia. Mapa interativo com rota e GPS.",
+  alternates: {
+    canonical: "/lojas",
+  },
+  openGraph: {
+    title: "Nossas Lojas na Bahia | Sorvetes Real do Solar",
+    description:
+      "53 lojas e pontos de venda em Salvador e toda a Bahia. Encontre a loja Sorvetes Real mais próxima de você!",
+    url: "https://sorvetesreal.com.br/lojas",
+    images: ["/logos/Logo-real-do-solar-01.png"],
+  },
+};
 
 export default function LojasPage() {
+  const jsonLdStores = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Lojas Sorvetes Real na Bahia",
+    description: "Lista oficial de lojas e pontos de venda da Sorvetes Real em Salvador e na Bahia",
+    numberOfItems: STORES_DATA.length,
+    itemListElement: STORES_DATA.map((store, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
+      item: {
+        "@type": "IceCreamShop",
+        name: `Sorvetes Real - ${store.name}`,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: store.address,
+          addressLocality: store.city,
+          addressRegion: "BA",
+          addressCountry: "BR",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: store.lat,
+          longitude: store.lng,
+        },
+        telephone: store.phone,
+        url: "https://sorvetesreal.com.br/lojas",
+      },
+    })),
+  };
+
   return (
     <main className="min-h-screen bg-real-red text-white flex flex-col justify-between items-center w-full relative overflow-x-hidden selection:bg-real-gold selection:text-real-wine">
+      {/* Schema JSON-LD para SEO & GEO Local */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdStores),
+        }}
+      />
+
       <div className="w-full flex flex-col items-center justify-between min-h-screen py-8 md:py-12 px-3 sm:px-4">
         
         {/* HEADER & LOGO */}
@@ -18,13 +74,16 @@ export default function LojasPage() {
             <span>Voltar ao Início</span>
           </Link>
 
-          {/* Logo Oficial */}
+          {/* Logo Oficial com dimensões explícitas para evitar CLS */}
           <div className="relative w-44 sm:w-56 md:w-64 aspect-[1439/809] drop-shadow-xl transition-transform duration-300 hover:scale-105 mx-auto">
             <img
               src="/logos/Logo-real-do-solar-01.png"
-              alt="Sorvetes Real do Solar"
+              alt="Sorvetes Real do Solar - Logo Oficial"
+              width={256}
+              height={144}
               className="w-full h-full object-contain"
               loading="eager"
+              fetchPriority="high"
             />
           </div>
           
