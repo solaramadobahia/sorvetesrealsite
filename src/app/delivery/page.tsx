@@ -94,24 +94,34 @@ const WHATSAPP_DELIVERY_STORES = [
 
 const IFOOD_STORES = [
   {
-    name: "Ribeira",
-    subtitle: "Peça pelo iFood em Salvador",
-    url: "https://www.ifood.com.br/delivery/salvador-ba/sorvetes-real---ribeira-ribeira/1e4db606-96a8-44fb-816b-d3ebffc6eb69",
-  },
-  {
     name: "Brotas",
     subtitle: "Peça pelo iFood em Salvador",
-    url: "https://www.ifood.com.br/delivery/salvador-ba/sorvetes-real---brotas-brotas/040a430c-7b00-47b8-b4b7-8495bc2ddf97",
+    url: "https://www.ifood.com.br/delivery/salvador-ba/sorvetes-real---brotas-engenho-velho-de-brotas/43e86f14-7908-4aef-98d2-54e27af1b337",
   },
   {
-    name: "Cidade Baixa",
-    subtitle: "Peça pelo iFood em Monte Serrat",
-    url: "https://www.ifood.com.br/delivery/salvador-ba/sorvetes-real---cidade-baixa-monte-serrat/62a74c72-9ecb-4ea6-ab72-ec8b48fb38a2",
+    name: "Shopping da Bahia",
+    subtitle: "Peça pelo iFood em Salvador",
+    url: "https://www.ifood.com.br/delivery/salvador-ba/real-do-solar-shopping-da-bahia-caminho-das-arvores/2efe2060-1671-4793-8894-86507e32525b",
   },
   {
-    name: "Praia do Forte",
-    subtitle: "Peça pelo iFood em Mata de São João",
-    url: "https://www.ifood.com.br/delivery/mata-de-sao-joao-ba/sorvetes-real-praia-do-forte-praia-do-forte/ed9c4021-99ee-47b4-9c88-e21544a053c8",
+    name: "Ribeira",
+    subtitle: "Peça pelo iFood em Salvador",
+    url: "https://www.ifood.com.br/delivery/salvador-ba/museu-do-sorvete---sorvetes-real-ribeira-ribeira/913392a1-5419-49e2-84de-1402245e4f93",
+  },
+  {
+    name: "7 de Abril",
+    subtitle: "Peça pelo iFood em Salvador",
+    url: "https://www.ifood.com.br/delivery/salvador-ba/sorvetes-real---7-de-abril-sete-de-abril/78d66d97-86f0-481d-81d5-b878251e9363",
+  },
+  {
+    name: "Imbuí",
+    subtitle: "Peça pelo iFood em Salvador",
+    url: "https://www.ifood.com.br/delivery/salvador-ba/sorvetes-real-imbui-imbui/09a71e96-080a-4b47-b987-88c95e372691",
+  },
+  {
+    name: "Shopping Piedade",
+    subtitle: "Peça pelo iFood em Salvador",
+    url: "https://www.ifood.com.br/delivery/salvador-ba/sorvete-real-shopping-piedade-barris/d1ee4789-24a7-4297-a4aa-a05442223dfa",
   },
 ];
 
